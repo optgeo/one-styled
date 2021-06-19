@@ -1,2 +1,2 @@
 # one-styled
-style editing in Ruby for improving one-voice
+style editing in Ruby for improving [one-voice](https://github.com/optgeo/one-voice)
