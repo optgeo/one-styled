@@ -25,8 +25,8 @@ init()
 
 const yaml = () => {
   for (const e of document.querySelectorAll('script')) {
-    if (s.type == 'text/yaml') {
-      return s.textContent
+    if (e.type == 'text/yaml') {
+      return e.textContent
     }
   }
   return null
