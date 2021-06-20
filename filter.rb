@@ -1,11 +1,26 @@
 require 'yaml'
 require 'json'
 
+HEIGHTS = YAML.load <<EOS
+4302: 3.66
+4301: 60
+3111: 3.66
+3112: 20
+3101: 3.66
+3102: 20
+3103: 60
+EOS
+keys = HEIGHTS.keys.map {|v| "buildings#{v}"}
+
 s = JSON.parse($stdin.read)
 
 s['layers'].each {|l|
   l.delete('metadata')  
   l['maxzoom'] = 24 if l['maxzoom'] >= 17
+  if keys.include?(l['id'])
+    ftCode = l['id'][-4..-1].to_i
+    l['paint']['fill-extrusion-height'] = HEIGHTS[ftCode]
+  end
 }
 
 s['sources']['h'] = YAML.load <<EOS
