@@ -15,8 +15,8 @@ const script = src => {
 
 const init = () => {
   style('style.css')
-  style('https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css')
-  script('https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js')
+  style('https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css')
+  script('https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js')
   const map = document.createElement('div')
   map.id = 'map'
   document.body.appendChild(map)
@@ -65,14 +65,7 @@ const showMap = async (texts) => {
   })
 }
 
-const main = async () => {
-  const texts = await YAML.parse(yaml())
-  if (typeof mapboxgl == 'undefined') {
-    window.onload = () => {
-      showMap(texts)
-    }
-  } else {
-    showMap(texts)
-  }
+const texts = await YAML.parse(yaml())
+window.onload = () => {
+  showMap(texts)
 }
-main()
