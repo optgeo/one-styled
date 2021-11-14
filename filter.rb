@@ -29,7 +29,7 @@ minzoom: 3
 maxzoom: 13
 tileSize: 512
 tiles:
-  - https://optgeo.github.io/10b512-7-113-50/zxy/{z}/{x}/{y}.webp
+  - https://x.optgeo.org/et10b/et512/{z}/{x}/{y}.webp
 EOS
 
 s['sources']['v'] = YAML.load <<EOS
